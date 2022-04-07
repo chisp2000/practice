@@ -3,27 +3,24 @@
 writtenword = ""
 
 
-def choose_style():
-    take = str(input("\nEnter the style you wish to use: "))
-    return take
+def enter_header():
+    header = str(input("\nEnter your title: "))
+    return header
+
+def enter_content():
+    content1 = str(input("\nEnter your content: "))
+    return content1
 
 
-def enter_info():
-    writtenWord = str(input("\nEnter your string: "))
-    return writtenWord
 
-def openFile(styles, infos):
+def openFile(i, c):
     file = open("website.html", "w")
-
-    styleBRACKETSopen = "<%s>" % (styles)
-    styleBRACKETSclosed = "</%s>" % (styles)
-    stringTOWEB = (styleBRACKETSopen, infos, styleBRACKETSclosed)
-
-    #file.write(stringTOWEB)
-    file.write("<%s>%s</%s>" % (styles, infos, styles))
+    file.write("<h1>%s</h1><p>%s</p>" % (i, c))
     file.close()
 
-style = choose_style()
-info = enter_info()
 
-openFile(style, info)
+
+info = enter_header()
+content = enter_content()
+
+openFile(info, content)
