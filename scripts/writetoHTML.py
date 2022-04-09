@@ -9,20 +9,20 @@ def enter_content():
     return content1
 
 def chooseAmount_p():
-    input = input("\nHow many paragraphs would you like to write? (DEFAULT:1)")
-    if type(input) == type(3):
-        return input
-    elif input == "DEFAULT":
+    inpat = input("\nHow many paragraphs would you like to write? (DEFAULT:1)")
+    if type(inpat) == type(3):
+        return inpat
+    elif inpat == "DEFAULT":
         return 1
     else:
         print("The value you entered is invalid.")
         return 1
 
 def chooseAmount_h():
-    input = input("\nHow many headers would you like to write? (DEFAULT:1)")
-    if type(input) == type(3):
-        return input
-    elif input == "DEFAULT":
+    inpat = input("\nHow many headers would you like to write? (DEFAULT:1)")
+    if type(inpat) == type(3):
+        return inpat
+    elif inpat == "DEFAULT":
         return 1
     else:
         print("The value you entered is invalid.")
@@ -32,16 +32,18 @@ def chooseAmount_h():
 
 def openFile(HEADER, CONTENT, AMOUNT_H, AMOUNT_P):
     file = open("website.html", "w")
-    tot_website = []
+    web_array = []
     for i in range(0, (AMOUNT_H+1)):
-        tot_website.append("<h1>")
-        tot_website.append(HEADER)
-        tot_website.append("</h1>")
+        web_array.append("<h1>")
+        web_array.append(HEADER)
+        web_array.append("</h1>")
 
     for i in range(0, (AMOUNT_P+1)):
-        tot_website.append("<p>")
-        tot_website.append(CONTENT)
-        tot_website.append("</p>")
+        web_array.append("<p>")
+        web_array.append(CONTENT)
+        web_array.append("</p>")
+
+    tot_website = ''.join(web_array)
 
 
     file.write(tot_website)
